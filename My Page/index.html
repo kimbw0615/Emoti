@@ -1,121 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Full Width Pics - Start Bootstrap Template</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
 
-        <style>
-            /* 사용자 사진 크기 조절 및 원형으로 만들기 */
-            .img-fluid.rounded-circle {
-                max-width:150px; /* 이미지의 최대 너비를 조절 */
-                max-height: 150px; /* 이미지의 최대 높이를 조절하여 정사각형으로 만듬 */
-                height: auto; /* 비율을 유지하기 위해 높이를 자동으로 설정 */
-                border-radius:50%; /* 이미지를 원형으로 만들기 */
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Full Width Pics - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+        /* 사용자 사진 크기 조절 및 원형으로 만들기 */
+        .img-fluid.rounded-circle {
+            max-width: 150px;
+            /* 이미지의 최대 너비를 조절 */
+            max-height: 150px;
+            /* 이미지의 최대 높이를 조절하여 정사각형으로 만듬 */
+            height: auto;
+            /* 비율을 유지하기 위해 높이를 자동으로 설정 */
+            border-radius: 50%;
+            /* 이미지를 원형으로 만들기 */
+        }
+
+        @keyframes fadeInZoom {
+            from {
+                pacity: 0;
+                transform: scale(0.5);
             }
-        </style>
-    </head>
-    <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#!">My Page</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Logout</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Header - set the background image for the header in the line below-->
-        <header class="py-5 bg-image-full" style="background-image: url('../image/backimage.jpg')">
-            <div class="text-center my-5">
-                <img class="img-fluid rounded-circle mb-4" src="../image/profile.jpg" alt="Profile Image"> <!-- 여기에 > 추가 -->
-                <div>
-                    <h1 class="text-black fs-3 fw-bolder">배꿍이</h1>
-                    <p style="color: black; margin-bottom: 0;">qordns0615@naver.com</p>
 
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-                </div>
-            </div>3
-        </header>
-        <!-- Content section-->
-        <section class="py-5">
-            <div class="container my-5">
-                <div class="text-center">
-                    <h2 style="margin-bottom: 70px;">평가 수</h2> <!-- h2 태그의 아래쪽 마진을 추가 -->
-                    <div class="row">
-                        <div class="col">
-                            <p class="lead" style="margin-bottom: 10px;">감정</p> <!-- p 태그의 아래쪽 마진을 추가 -->
-                            <p class="mb-0" id="emotion-count">0</p>
-                        </div>
-                        <div class="col">
-                            <p class="lead" style="margin-bottom: 10px;">글</p> <!-- p 태그의 아래쪽 마진을 추가 -->
-                            <p class="mb-0" id="post-count">0</p>
-                        </div>
-                        <div class="col">
-                            <p class="lead" style="margin-bottom: 10px;">댓글</p> <!-- p 태그의 아래쪽 마진을 추가 -->
-                            <p class="mb-0" id="comment-count">0</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        
-        <!-- Image element - set the background image for the header in the line below-->
-        <!-- Statistics graph container -->
-        <div class="py-5 ">
-            <div class="container my-5 shadow">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h3 class="text-center">누적 나의 감정</h3>
-                            <div id="stats-graph-container" style="height: 400px;">
-                                <!-- 여기에 통계 그래프가 로드될 것입니다 -->
+        .fadeInZoom {
+            animation-name: fadeInZoom;
+            animation-duration: 2s;
+            /* 애니메이션 지속 시간 */
+            animation-fill-mode: both;
+            /* 애니메이션이 끝난 후 상태 유지 */
+        }
 
-                                <!-- 임시로 이미지 파일을 넣습니다 -->
-                                <img src="../image/Graph.png" alt="임시 통계 그래프" style="max-width: 100%; height: auto;">
+        @keyframes fadeInBounce {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.2); /* 중간에 약간 크게 만들어 '바운스' 효과를 줍니다. */
+        }
+        70% {
+            transform: scale(0.9); /* 바운스 되돌아오는 효과 */
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
 
+    .fadeInBounce {
+        animation-name: fadeInBounce;
+        animation-duration: 4s; /* 지속 시간을 4초로 설정 */
+        animation-fill-mode: both;
+    }
+    </style>
+</head>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>    
-        
+<body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#!">My Page</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Logout</a></li>
 
-        <!-- Content section-->
-        <section class="py-5">
-            <div class="container my-5">
-                <div class="text-center mb-4">
-                    <h2>내가 쓴 글</h2>
-                </div>
-                <ul class="list-group">
-                    <li class="list-group-item">내가 쓴 글 1</li>
-                    <li class="list-group-item">내가 쓴 글 2</li>
-                    <li class="list-group-item">내가 쓴 글 3</li>
-                    <li class="list-group-item">내가 쓴 글 4</li>
-                    <li class="list-group-item">내가 쓴 글 5</li>
                 </ul>
             </div>
-        </section>
-        
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Design By 김배꿍</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        </div>
+    </nav>
+    <!-- Header - set the background image for the header in the line below-->
+    <header class="py-5 bg-image-full" style="background-image: url('../image/backimage.jpg')">
+        <div class="text-center my-5">
+            <img class="img-fluid rounded-circle mb-4" src="../image/profile.jpg" alt="Profile Image"> <!-- 여기에 > 추가 -->
+            <div>
+                <h1 class="text-black fs-3 fw-bolder">배꿍이</h1>
+                <p style="color: black; margin-bottom: 0;">qordns0615@naver.com</p>
+
+
+            </div>
+        </div>3
+    </header>
+    <!-- Content section-->
+    <section class="py-5">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <h2>평가 수</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">감정</h5>
+                            <p class="card-text" id="emotion-count">150</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">글</h5>
+                            <p class="card-text" id="post-count">5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">댓글</h5>
+                            <p class="card-text" id="comment-count">2000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Image element - set the background image for the header in the line below-->
+    <!-- Statistics graph container -->
+    <div class="py-5 ">
+        <div class="container my-5 shadow">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="text-center">누적 나의 감정</h3>
+                    <div id="stats-graph-container" style="height: 400px;">
+                        <!-- 여기에 통계 그래프가 로드될 것입니다 -->
+
+                        <!-- 임시로 이미지 파일을 넣습니다 -->
+                        <img src="../image/Graph.png" alt="임시 통계 그래프" class="fadeInBounce" style="max-width: 100%; height: auto;">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Content section-->
+    <section class="py-5">
+        <div class="container my-5">
+            <div class="text-center mb-4">
+                <h2>내가 쓴 글</h2>
+            </div>
+            <div class="row">
+                <!-- 각 카드는 col-lg-2 클래스를 사용하여 레이아웃을 구성합니다 -->
+                <!-- Card 1 -->
+                <div class="col-lg-2">
+                    <div class="card text-center">
+                        <div class="card-header bg-primary text-white">
+                            01
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">내용 1</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-lg-2">
+                    <div class="card text-center">
+                        <div class="card-header bg-danger text-white">
+                            02
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">내용 2</p>
+                            <a href="#" class="btn btn-danger">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-lg-2">
+                    <div class="card text-center">
+                        <div class="card-header bg-warning text-white">
+                            03
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">내용 3</p>
+                            <a href="#" class="btn btn-warning">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-lg-2">
+                    <div class="card text-center">
+                        <div class="card-header bg-info text-white">
+                            04
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">내용 4</p>
+                            <a href="#" class="btn btn-info">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col-lg-2">
+                    <div class="card text-center">
+                        <div class="card-header bg-success text-white">
+                            05
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">내용 5</p>
+                            <a href="#" class="btn btn-success">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Design By 김배꿍</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
 </html>

@@ -27,3 +27,20 @@ window.onload = function() {
     animateValue("comment-count", 0, 2000, 50); // 0에서 2000까지 2초 동안 증가
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+    const posts = ["내가 쓴 글 1", "내가 쓴 글 2", "내가 쓴 글 3", "내가 쓴 글 4", "내가 쓴 글 5"];
+    const postsContainer = document.getElementById('my-posts');
+
+    posts.forEach(post => {
+        const li = document.createElement('li');
+        li.classList.add('list-group-item');
+        li.textContent = post;
+        li.addEventListener('mouseenter', () => {
+            li.style.backgroundColor = "#f8f9fa";
+        });
+        li.addEventListener('mouseleave', () => {
+            li.style.backgroundColor = "";
+        });
+        postsContainer.appendChild(li);
+    });
+});
